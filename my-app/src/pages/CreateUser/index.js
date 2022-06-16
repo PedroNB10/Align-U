@@ -34,7 +34,7 @@ export default function CreateUser({ navigation }) {
   }
    
   const addFirestore = async () => {
-    const data = {
+    const data = { 
       email,
       password,
       name,

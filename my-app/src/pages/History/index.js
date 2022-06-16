@@ -41,7 +41,7 @@ export default function History() {
 
   useEffect(() => {
     const user = firebaseAuth.currentUser.email;
-    const docRef = collection(db, "Users");
+    const docRef = collection(db, "Users");//nome da coleção do firebase: Users
     const q = query(docRef, where("email", "==", user));
     const data = getDocsFirebase(q);
   }, [])

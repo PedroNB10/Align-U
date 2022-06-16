@@ -35,22 +35,20 @@ export default function Profile() {
   
   return (
   <View style={styles.mainContainer}>
-      <View style={styles.topContainer}>
-        <FontAwesome style={styles.profileImage} name="user-circle" size={180} color="black" />
-      </View>
+      
       <View style={styles.bottomContainer}>
-          <Text style={styles.profileName}>{name}</Text>
-          <Text style={styles.title}><b>Email:</b> {email}</Text>
-          <Text style={styles.title}><b>Idade:</b>{age} anos</Text>
-          {
-          (describe === "" || describe === undefined) ?
-            <Text style={styles.title}><b>Tratamento:</b> não está em tratamento</Text>
-          :
-            <Text style={styles.title}><b>Tratamento:</b>{describe}</Text>
-          }
-          <Text style={styles.title}><b>Dia da semana:</b>{dayWeek}</Text>
-          <Text style={styles.linkEdit}>Editar Perfil</Text>
-      </View>
+            <Text style={styles.profileName}>{name}</Text>
+            <Text style={styles.title}>Email: {email}</Text>
+            <Text style={styles.title}>Idade:{age} anos</Text>
+            {
+            (describe === "" || describe === undefined) ?
+              <Text style={styles.title}>Tratamento: não está em tratamento</Text>
+            :
+              <Text style={styles.title}>Tratamento:{describe}</Text>
+            }
+            <Text style={styles.title}>Dia da semana:{dayWeek}</Text>
+            <Text style={styles.linkEdit}>Editar Perfil</Text>
+        </View>
   </View>
   );
 }
