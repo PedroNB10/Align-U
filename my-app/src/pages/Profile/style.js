@@ -2,20 +2,21 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     body: {
-      backgroundColor: '#0984e3',
+      backgroundColor: 'black',
       margin: '250 200',
       padding: 0,
-     
       fontSize: 16,
     },
     
     mainContainer: {
-      height: '100%',
-      backgroundColor: '#0984e3',
-      borderRadius: 6,
-      boxShadow: '1px 5px 1px rgba(0, 0, 0, 0.3',
+      marginTop: 75,
+      marginLeft: 95,
+      height: '80%',
+      backgroundColor: 'black',
+      borderRadius: 10,
+      width: '50%',
       display: 'flex',
-      flexDirection: 'colum',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-around',
     },
@@ -41,22 +42,17 @@ const styles = StyleSheet.create({
     },
 
     bottomContainer: {
-      borderRadius: '8px',
-      display: 'flex',
-      flexDirection: 'colum',
-      justifyContent: 'space-around',
-      flexWrap: 'warp',
-      alignItems: 'center',
-      width: '60%',
-      height: '50%',
-      backgroundColor: '#dfe6e9',
-      textAlign: 'center',
+    
+      
+      
+      backgroundColor: 'blue',
+     
     },
 
     profileName: {
     
       color: '#6c5ce7',
-      fontSize: '1.5em',
+      
       fontWeight: 'bold',
     },
 

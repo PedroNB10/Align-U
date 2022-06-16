@@ -34,6 +34,7 @@ export default function Profile() {
 }, [])
   
   return (
+  //É nesse view  mainContainer que está com problema de css
   <View style={styles.mainContainer}>
       
       <View style={styles.bottomContainer}>
