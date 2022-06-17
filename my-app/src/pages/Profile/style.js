@@ -1,24 +1,25 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-    body: {
-      backgroundColor: 'black',
-      margin: '250 200',
-      padding: 0,
-      fontSize: 16,
+    bodyContainer: {
+      backgroundColor: '#00008b',
+      width: '100%',
+      height: '100%',
+      alignItems: 'center',
     },
     
     mainContainer: {
-      marginTop: 75,
-      marginLeft: 95,
-      height: '80%',
-      backgroundColor: 'black',
-      borderRadius: 10,
-      width: '50%',
+      marginTop: '50%',
+      height: '70%',
+      backgroundColor: 'white',
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-around',
+      
     },
     
     topContainer: {
@@ -30,23 +31,22 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       opacity: '0.5',
+     
+      
     },
     
     profileImage: {
-      backgroundColor: '#ffff',
-      height: 240,
+      
+      height: 100,
+      width: 100,
       padding: 5,
-      borderRadius: '50%',
-      borderBottomColor: '#6c5ce7',
-      marginTop: 125,
+      
     },
 
     bottomContainer: {
-    
-      
-      
+      alignItems: 'center',
       backgroundColor: 'blue',
-     
+      marginBottom: 45,
     },
 
     profileName: {
