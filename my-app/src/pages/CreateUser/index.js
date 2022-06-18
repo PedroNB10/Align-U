@@ -175,7 +175,7 @@ export default function CreateUser({ navigation }) {
                 </Pressable>
           </View>
       </View>
-        { (email === "" || password === "" || age === '' || name === '')
+        { (email === "" || password === "" || age === '' || name === '' || dayWeek ==='')
         ?
         <TouchableOpacity
           style={styles.buttonLoginDisabled}
