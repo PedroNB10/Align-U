@@ -99,20 +99,23 @@ export default function Profile({ navigation }) {
                 <View style={styles.LabelContainer}>
                   <Image source={treatment_img} style={styles.Icons} />
                   <Text style={styles.LabelText}>Tratamento</Text>
+              
+        
+        
                 </View>
-
                 {
-                  (describe === "" || describe === undefined) ?
-
-                    <Text style={styles.title}>não está em tratamento</Text>
-                    :
-                    <Text style={styles.title}>{describe}</Text>
-                }
+        (describe === "" || describe === undefined) ?
+          <Text style={styles.title}>não está em tratamento</Text>
+        :
+         <Text style={styles.title}>{describe}</Text>
+        }
+              
               </View>
 
               <View style={styles.separateInfoContainer} >
                 <View style={styles.LabelContainer}>
                   <Image source={weekday_img} style={styles.Icons} />
+            
                   <Text style={styles.LabelText}>Dia da semana</Text>
                 </View>
                 <Text style={styles.title}>{dayWeek}</Text>
