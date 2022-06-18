@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '100%',
       alignItems: 'center',
-      fontFamily: "Roboto",
+  
 
     },
 
@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
       
       width:'100%',
       backgroundColor: '#a9b8f4',
-      height: '4.2%',
+      height: '4%',
       fontFamily: "Roboto",
-     
+   
     },
     
     mainContainer: {
@@ -81,18 +81,24 @@ const styles = StyleSheet.create({
       width: '100%',
       flexDirection: "row",
       flexWrap: "wrap",
-      
+
+    },
+
+    separateInfoContainer:{
+      marginBottom: '7%',
+
     },
 
     LabelText: {
   
       paddingTop: '1%',
-      paddingLeft: '7.4%',
+      paddingLeft: '7.7%',
       flexDirection: "row",
       flexWrap: "wrap",
       fontSize: 17,
       color: 'white', 
       fontWeight: 'bold',
+     
       
     },
 
@@ -103,6 +109,7 @@ const styles = StyleSheet.create({
     },
 
     Toptitle: {
+      marginTop: '9%',
       fontSize: 20,
       color: 'white', 
       paddingBottom: '13%',
@@ -111,6 +118,7 @@ const styles = StyleSheet.create({
 
     title: {
       width: '100%',
+      
       paddingLeft: '25%',
       alignContent: 'flex-start',
       

@@ -70,50 +70,55 @@ export default function Profile({ navigation }) {
 
             <View style={styles.bottomContainer}>
 
-              <View style={styles.LabelContainer}>
-                <Image source={user_img} style={styles.Icons} />
-                <Text style={styles.LabelText} >Usuário</Text>
+              <View style={styles.separateInfoContainer} >
+                <View style={styles.LabelContainer}>
+                  <Image source={user_img} style={styles.Icons} />
+                  <Text style={styles.LabelText} >Usuário</Text>
+                </View>
+                <Text style={styles.title}>{name}</Text>
               </View>
 
-              <Text style={styles.title}>{name}</Text>
-
-              <View style={styles.LabelContainer}>
-                <Image source={email_user_img} style={styles.Icons} />
-                <Text style={styles.LabelText}>Email</Text>
+              <View style={styles.separateInfoContainer} >
+                <View style={styles.LabelContainer}>
+                  <Image source={email_user_img} style={styles.Icons} />
+                  <Text style={styles.LabelText}>Email</Text>
+                </View>
+                <Text style={styles.title}>{email}</Text>
               </View>
 
-              <Text style={styles.title}>{email}</Text>
 
-              <View style={styles.LabelContainer}>
-                <Image source={age_img} style={styles.Icons} />
-                <Text style={styles.LabelText}>Idade</Text>
+              <View style={styles.separateInfoContainer} >
+                <View style={styles.LabelContainer}>
+                  <Image source={age_img} style={styles.Icons} />
+                  <Text style={styles.LabelText}>Idade</Text>
+                </View>
+                <Text style={styles.title}>{age} anos</Text>
               </View>
 
-              <Text style={styles.title}>{age} anos</Text>
+              <View style={styles.separateInfoContainer} >
+                <View style={styles.LabelContainer}>
+                  <Image source={treatment_img} style={styles.Icons} />
+                  <Text style={styles.LabelText}>Tratamento</Text>
+                </View>
 
-              <View style={styles.LabelContainer}>
-                <Image source={treatment_img} style={styles.Icons} />
-                <Text style={styles.LabelText}>Tratamento</Text>
+                {
+                  (describe === "" || describe === undefined) ?
+
+                    <Text style={styles.title}>não está em tratamento</Text>
+                    :
+                    <Text style={styles.title}>{describe}</Text>
+                }
               </View>
 
-              {
-                (describe === "" || describe === undefined) ?
-
-                  <Text style={styles.title}>não está em tratamento</Text>
-                  :
-                  <Text style={styles.title}>{describe}</Text>
-              }
-
-              <View style={styles.LabelContainer}>
-                <Image source={weekday_img} style={styles.Icons} />
-                <Text style={styles.LabelText}>Dia da semana</Text>
-
+              <View style={styles.separateInfoContainer} >
+                <View style={styles.LabelContainer}>
+                  <Image source={weekday_img} style={styles.Icons} />
+                  <Text style={styles.LabelText}>Dia da semana</Text>
+                </View>
+                <Text style={styles.title}>{dayWeek}</Text>
               </View>
 
-              <Text style={styles.title}>{dayWeek}</Text>
-
-
-              <Button 
+              <Button
                 title="Logout"
                 onPress={() => navigation.navigate('login')}
               />
