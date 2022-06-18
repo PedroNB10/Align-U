@@ -9,14 +9,17 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       paddingTop: Platform.OS === 'ios' ? 0 : 50,        
     },
+
     title: {
       borderBottomWidth: 2,
       borderBottomColor: '#00BFFF',
       fontSize: 30,
+      textAlign: "center",
       marginBottom: 10,
       fontWeight: 'bold',
       color: '#ffff'
     },
+
     input: {
       backgroundColor: '#ffff',
       borderRadius: 10,
@@ -30,15 +33,16 @@ const styles = StyleSheet.create({
       borderBottomColor: '#F92E6A',
       color: "#4d5156",  
     },
+
     buttonLoginDisabled: {
       width: 200,
       height: 0,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius:40,
-      backgroundColor: "#00BFFF",
-     
+      backgroundColor: "#00BFFF",     
     },
+
     buttonLogin: {
       width: 200,
       height: 50,
@@ -48,56 +52,74 @@ const styles = StyleSheet.create({
       backgroundColor: "#00008B",
       marginTop: 30,
     },
+    
     textButtonLogin: {
       color: '#ffffff',
     },
+    
     contentAlert: {
       marginTop: 20,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
     },
+    
     warningAlert: {
       paddingLeft: 10,
       color: '#FFD700',
       fontSize: 16,
     },
+    
     registration: {
-     
       color: '#ffff',
+      textAlign: 'center',
+      alignItems: 'center',
+      marginTop: 10,
     },
+    
     linkSubscribe: {
       color: '#00BFFF',
       marginLeft: 5,
       fontSize: 16,
     },
+    
     labels: {
       display: 'flex',
       justifyContent: 'center',
+      textAlign: 'center',
       width: '100%',
       marginRight:'auto',
       marginTop:10,
       color: '#ffff',
       justifyContent: 'center',
     },
+    
     checkboxContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       flexDirection: "row",
       marginBottom: 20,
       marginTop: 20,
     },
+    
     checkbox: {
       alignSelf: "center",
+      backgroundColor: 'white',
     },
+    
     label: {
       margin: 8,
       color:'#ffff',
     },
+    
     centeredView: {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
       
     },
+    
     modalView: {
       margin: 20,
       backgroundColor: "white",
@@ -106,34 +128,46 @@ const styles = StyleSheet.create({
       alignItems: "center",
       shadowColor: "#000",
       shadowOffset: {
-        width: 0,
-        height: 2
-      },
+          width: 0,
+          height: 2
+        },
       shadowOpacity: 0.25,
       shadowRadius: 4,
       elevation: 5
     },
+    
     button: {
       width: 300,
       borderRadius: 20,
       padding: 10,
       elevation: 2,
     },
+    
     buttonOpen: {
       backgroundColor: "#ffeaa7",
+      marginTop: 10,
     },
+    
     buttonClose: {
       backgroundColor: "#ffeaa7",
+      marginTop: 10,
     },
+
+    buttonDayModal: {
+      backgroundColor: "#ffeaa7",
+      marginTop: 10,
+      borderRadius: 2,
+    },
+    
     textStyle: {
       color: '#6c5ce7',
       fontWeight: "bold",
       textAlign: "center"
     },
+    
     modalText: {
       color: '#6c5ce7',
       marginBottom: 15,
-
       textAlign: "center"
     }
 })

@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
     },
 
     TopView: {
-      marginBottom: '10%',
+      
       width:'100%',
       backgroundColor: '#a9b8f4',
-      height: '4%',
+      height: '4.2%',
       fontFamily: "Roboto",
+     
     },
     
     mainContainer: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
       marginTop: '9%',
       height: '70%',
    
-      backgroundColor: 'white',
+      backgroundColor: 'orange',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       width: '100%',
@@ -65,23 +66,28 @@ const styles = StyleSheet.create({
       
     },
 
-    bottomContainer: {
-      
-      backgroundColor: 'orange',
+    bottomContainer: { // container das informações de login
+    
+      marginTop: '9%',
       width: '100%',
+    
       marginBottom: '30%',
     },
 
+  
+
     LabelContainer: {
-      
+      marginLeft: '9%',
+      width: '100%',
       flexDirection: "row",
       flexWrap: "wrap",
       
     },
 
     LabelText: {
+  
       paddingTop: '1%',
-      paddingLeft: '6%',
+      paddingLeft: '7.4%',
       flexDirection: "row",
       flexWrap: "wrap",
       fontSize: 17,
@@ -104,7 +110,8 @@ const styles = StyleSheet.create({
     },
 
     title: {
-      paddingLeft: '15%',
+      width: '100%',
+      paddingLeft: '25%',
       alignContent: 'flex-start',
       
       fontSize: 17,
