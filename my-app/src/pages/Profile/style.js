@@ -1,16 +1,37 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+
+  Icons: {
+ 
+    width: 30,
+    height: 30,
+   left:10,
+
+  },
+  
     bodyContainer: {
       backgroundColor: '#00008b',
       width: '100%',
       height: '100%',
       alignItems: 'center',
+      fontFamily: "Roboto",
+
+    },
+
+    TopView: {
+      marginBottom: '10%',
+      width:'100%',
+      backgroundColor: '#a9b8f4',
+      height: '4%',
+      fontFamily: "Roboto",
     },
     
     mainContainer: {
-      marginTop: '50%',
+      
+      marginTop: '9%',
       height: '70%',
+   
       backgroundColor: 'white',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
@@ -19,6 +40,7 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-around',
+      fontFamily: "Roboto",
       
     },
     
@@ -39,28 +61,54 @@ const styles = StyleSheet.create({
       
       height: 100,
       width: 100,
-      padding: 5,
+      
       
     },
 
     bottomContainer: {
-      alignItems: 'center',
-      backgroundColor: 'blue',
-      marginBottom: 45,
+      
+      backgroundColor: 'orange',
+      width: '100%',
+      marginBottom: '30%',
+    },
+
+    LabelContainer: {
+      
+      flexDirection: "row",
+      flexWrap: "wrap",
+      
+    },
+
+    LabelText: {
+      paddingTop: '1%',
+      paddingLeft: '6%',
+      flexDirection: "row",
+      flexWrap: "wrap",
+      fontSize: 17,
+      color: 'white', 
+      fontWeight: 'bold',
+      
     },
 
     profileName: {
     
       color: '#6c5ce7',
-      
       fontWeight: 'bold',
     },
 
+    Toptitle: {
+      fontSize: 20,
+      color: 'white', 
+      paddingBottom: '13%',
+
+    },
+
     title: {
+      paddingLeft: '15%',
       alignContent: 'flex-start',
       
-      fontSize: 20,
-      color: '#6c5ce7', 
+      fontSize: 17,
+      color: 'white', 
     },
 
     linkEdit: {
