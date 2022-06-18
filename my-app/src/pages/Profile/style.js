@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       width:'100%',
       backgroundColor: '#a9b8f4',
       height: '4%',
-      fontFamily: "Roboto",
+
    
     },
     
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-around',
-      fontFamily: "Roboto",
+  
       
     },
     

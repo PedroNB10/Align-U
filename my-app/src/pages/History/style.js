@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     },
 
     titleChart: {
-      fontFamily: 'roboto, sans-serif',
+    
       color: 'white',
       fontSize: '2em',
       fontWeight: 'bold',
