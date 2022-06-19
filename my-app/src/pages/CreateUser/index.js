@@ -173,9 +173,7 @@ export default function CreateUser({ navigation }) {
                 >
                     <Text style={styles.textStyle}>Selecione o dia: {dayWeek} </Text>
                 </Pressable>
-          </View>
-      </View>
-        { (email === "" || password === "" || age === '' || name === '' || dayWeek ==='')
+                { (email === "" || password === "" || age === '' || name === '' || dayWeek ==='')
         ?
         <TouchableOpacity
           style={styles.buttonLoginDisabled}
@@ -191,6 +189,10 @@ export default function CreateUser({ navigation }) {
             <Text style={styles.textButtonLogin}>Cadastrar</Text>
         </TouchableOpacity>
         }
+          </View>
+
+      </View>
+       
         <Text style={styles.registration}>
             Já é cadastrado?
             <Text
