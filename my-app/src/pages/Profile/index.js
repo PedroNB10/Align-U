@@ -20,13 +20,12 @@ import { useState, useEffect } from 'react';
 
 
 
-import top_profile_img from './profile-picture.png/'
-
-import user_img from './bottom-profile-img.png/'
-import email_user_img from './email-img.png/'
-import age_img from './age-img.png/'
-import treatment_img from './treatment-img.png/'
-import weekday_img from './week-day-img.png/'
+import profilePicture from '../../Images/profilePicture.png'
+import bottomProfile from '../../Images/bottomProfile.png'
+import emailImg from '../../Images/emailImg.png'
+import age_img from '../../Images/age.png'
+import treatmentImg from '../../Images/treatmentImg.png'
+import weekDay from '../../Images/weekDay.png'
 
 export default function Profile({ navigation }) {
   const [email, setEmail] = useState("");
@@ -65,14 +64,14 @@ export default function Profile({ navigation }) {
 
 
           <Text style={styles.Toptitle}>Perfil</Text>
-          <Image source={top_profile_img} style={styles.profileImage} />
+          <Image source={profilePicture} style={styles.profileImage} />
           <View style={styles.mainContainer}>
 
             <View style={styles.bottomContainer}>
 
               <View style={styles.separateInfoContainer} >
                 <View style={styles.LabelContainer}>
-                  <Image source={user_img} style={styles.Icons} />
+                  <Image source={profilePicture} style={styles.Icons} />
                   <Text style={styles.LabelText} >Usuário</Text>
                 </View>
                 <Text style={styles.title}>{name}</Text>
@@ -80,7 +79,7 @@ export default function Profile({ navigation }) {
 
               <View style={styles.separateInfoContainer} >
                 <View style={styles.LabelContainer}>
-                  <Image source={email_user_img} style={styles.Icons} />
+                  <Image source={emailImg} style={styles.Icons} />
                   <Text style={styles.LabelText}>Email</Text>
                 </View>
                 <Text style={styles.title}>{email}</Text>
@@ -97,7 +96,7 @@ export default function Profile({ navigation }) {
 
               <View style={styles.separateInfoContainer} >
                 <View style={styles.LabelContainer}>
-                  <Image source={treatment_img} style={styles.Icons} />
+                  <Image source={treatmentImg} style={styles.Icons} />
                   <Text style={styles.LabelText}>Tratamento</Text>
               
         
@@ -114,7 +113,7 @@ export default function Profile({ navigation }) {
 
               <View style={styles.separateInfoContainer} >
                 <View style={styles.LabelContainer}>
-                  <Image source={weekday_img} style={styles.Icons} />
+                  <Image source={weekDay} style={styles.Icons} />
             
                   <Text style={styles.LabelText}>Dia da semana</Text>
                 </View>

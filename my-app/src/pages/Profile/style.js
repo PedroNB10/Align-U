@@ -74,8 +74,6 @@ const styles = StyleSheet.create({
       marginBottom: '30%',
     },
 
-  
-
     LabelContainer: {
       marginLeft: '9%',
       width: '100%',
