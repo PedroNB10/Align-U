@@ -18,7 +18,7 @@ import { firebaseAuth, db } from '../../Helpers/firebaseConfig';
 import { collection, query, where, doc, setDoc, getDocs } from "firebase/firestore";
 import { useState, useEffect } from 'react';
 
-
+import { signOut} from 'firebase/auth';
 
 import profilePicture from '../../Images/profilePicture.png'
 import bottomProfile from '../../Images/bottomProfile.png'
@@ -34,6 +34,8 @@ export default function Profile({ navigation }) {
   const [describe, setDescribe] = useState("")
   const [dayWeek, setDayWeek] = useState("");
 
+ 
+
   const getDocsFirebase = async (q) => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -46,6 +48,12 @@ export default function Profile({ navigation }) {
       setDayWeek(dataQuery.dayWeek)
       return dataQuery;
     })
+  }
+
+  let logout = () => {
+    signOut( firebaseAuth).then(() => {
+      navigation.navigate('login');
+    });
   }
 
   useEffect(() => {
@@ -122,7 +130,9 @@ export default function Profile({ navigation }) {
 
               <Button
                 title="Logout"
-                onPress={() => navigation.navigate('login')}
+            
+
+                onPress={logout}
               />
 
 
