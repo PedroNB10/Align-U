@@ -1,7 +1,9 @@
 import React from 'react';
-import { signInWithEmailAndPassword } from '@firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth'
 import { firebaseAuth } from '../../Helpers/firebaseConfig'
 import { useState, useEffect } from 'react';
+
+
 import {
     Text, 
     View,
@@ -17,6 +19,18 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorLogin, setErrorLogin] = useState("");
+
+    //server para caso a pessoa feche o app, daí ele loga com os dados armazenados anteriores
+    if (firebaseAuth.currentUser) {
+        navigation.navigate('home');
+      } else {
+        onAuthStateChanged(firebaseAuth, (user) => {
+          if (user) {
+            navigation.navigate('home');
+          }
+        });
+      }
+
 
     const loginFirebase = () => {
         signInWithEmailAndPassword(firebaseAuth, email, password)

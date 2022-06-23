@@ -9,6 +9,7 @@ import History from './src/pages/History/index';
 import Profile from './src/pages/Profile';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
