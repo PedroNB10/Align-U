@@ -62,7 +62,7 @@ export default function History() {
           <title>Document</title>
           <style>
           body{
-            background-color: aqua;
+            background-color: #00008b;
         }
           </style>
       </head>

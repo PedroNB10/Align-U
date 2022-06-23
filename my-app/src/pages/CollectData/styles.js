@@ -4,32 +4,78 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: '#4169E1',
+      backgroundColor: '#00008b',
       flexDirection: 'column',
       justifyContent: 'space-between',
     },
 
+    TopView: {
+      
+      width:'100%',
+      backgroundColor: '#00afff',
+      height: '4%',
+
+   
+    },
+
+    separateInfoContainer:{
+      
+      marginBottom: '7%',
+      marginTop: '7%',
+
+    },
+
+    Icons: {
+ 
+      width: 45,
+      height: 45,
+     left:10,
+  
+    },
+
+    LabelContainer: {
+    
+      width: '100%',
+      flexDirection: "row",
+      flexWrap: "wrap",
+
+    },
+
+    LabelText: {
+  
+      paddingTop: '1%',
+      paddingLeft: '7.7%',
+      flexDirection: "row",
+      flexWrap: "wrap",
+      fontSize: 17,
+      color: 'white', 
+      fontWeight: 'bold',
+     
+      
+    },
+
     containerText: {
-      height: '30%',
+      marginLeft:16,
+      height: '77%',
       display: 'flex',
-      alignItems: 'center',
-      flexWrap: 'wrap',
       justifyContent: 'center',
-      width: '99%',
-      borderRadius: 10,
-      backgroundColor: '#dfe6e9',
+      width: '82%',
+      borderRadius: 30,
+      backgroundColor: '#ffff',
       marginTop: 5,
     },
 
     title: {
-      color: '#6c5ce7',
-      fontSize: 23,
+      
+      color: '#00008b',
+      fontSize: 16,
+      textAlign: "center",
     },
 
     titleBtn: {
       fontSize: 35,
-      color: '#6c5ce7',
-      
+      color: '#ffff',
+      textAlign: "center",
     },
 
     buttonCollect: {
@@ -37,11 +83,11 @@ const styles = StyleSheet.create({
       boxshadow: '10 10 5 #aaaaaa',
       alignItems: 'center',
       justifyContent: 'center',
-      width: 300,
-      height: 300,
-      backgroundColor: '#00cec9',
+      width: 250,
+      height: 250,
+      backgroundColor: '#3a82e9',
       borderRadius: 500,
-      marginBottom: 100,
+      marginBottom: 280,
     },
 
     centeredView: {

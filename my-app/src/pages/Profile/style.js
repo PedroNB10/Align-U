@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     TopView: {
       
       width:'100%',
-      backgroundColor: '#a9b8f4',
+      backgroundColor: '#00afff',
       height: '4%',
 
    
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
       marginTop: '9%',
       height: '70%',
    
-      backgroundColor: 'orange',
+      backgroundColor: '#3a82e9',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       width: '100%',
