@@ -128,7 +128,7 @@ export default function Profile({ navigation }) {
                 <Text style={styles.title}>{dayWeek}</Text>
               </View>
 
-              <Button color="#f194ff"
+              <Button color="#fc447a"
                 title="Logout"
             
 
