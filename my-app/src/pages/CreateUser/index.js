@@ -17,6 +17,9 @@ import {
 import styles from './styles'
 import { collection, doc, setDoc } from "firebase/firestore";
 
+
+
+  
 export default function CreateUser({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +32,8 @@ export default function CreateUser({ navigation }) {
   const days = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira"]
 
   
+
+
   const handleDayOfWeek = (day) => {
     setModalVisible(!modalVisible);
     setDayWeek(day);

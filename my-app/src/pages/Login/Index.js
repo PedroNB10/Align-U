@@ -1,5 +1,5 @@
 import React from 'react';
-import { signInWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from '@firebase/auth'
 import { firebaseAuth } from '../../Helpers/firebaseConfig'
 import { useState, useEffect } from 'react';
 
@@ -20,6 +20,8 @@ export default function Login({ navigation }) {
     const [password, setPassword] = useState("");
     const [errorLogin, setErrorLogin] = useState("");
 
+    
+    
     //server para caso a pessoa feche o app, daí ele loga com os dados armazenados anteriores
     if (firebaseAuth.currentUser) {
         navigation.navigate('home');
@@ -65,15 +67,15 @@ export default function Login({ navigation }) {
             <TextInput
               id="inputname"
               style={styles.input}
-              placeholder="enter your email"
+              placeholder="Digite seu email"
               type="text"
               onChangeText={(text) => setEmail(text)}
               value={email}
             />
             <TextInput
               style={styles.input}
-              placeholder="enter your password"
-              secureTextEntry={true}
+              placeholder="Digite sua senha"
+              secureTextEntry={false}
               type="text"
               onChangeText={(password) => setPassword(password)}
               value={password}
