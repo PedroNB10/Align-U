@@ -23,6 +23,7 @@ export default function CollectData({ route }) {
   const [dayWeek, setDayWeek] = useState("");
   const [link1, setGraph1] = useState("");
   const [link2, setGraph2] = useState("");
+  const [link3, setGraph3] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
 
@@ -38,6 +39,7 @@ export default function CollectData({ route }) {
       setDayWeek(dataQuery.dayWeek)
       setGraph1(dataQuery.link1)
       setGraph2(dataQuery.link2)
+      setGraph3(dataQuery.link3)
       return dataQuery;
     })
   }

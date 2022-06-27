@@ -45,6 +45,7 @@ export function EnviarUbidots() {
             var resposta_botao = Http.responseText//variavel onde armazena o estado da requisição
               if(resposta_botao.includes("201"))//Resposta tem o texto 201? Sim: Ubidots aceitou dado
                 {
+                  alert("Enviado com sucesso!")
     	            console.log(`valor enviado: ${valor_mpu_01}`)
                   console.log(resposta_botao);//The innerHTML property sets or returns the HTML content (inner HTML) of an element.
                 }

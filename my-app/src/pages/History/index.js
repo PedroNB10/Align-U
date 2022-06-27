@@ -21,7 +21,8 @@ export default function History() {
   const [describe, setDescribe] = useState("")
   const [dayWeek, setDayWeek] = useState("");    
   const [link1, setGraph1] = useState("");    
-  const [link2, setGraph2] = useState("");    
+  const [link2, setGraph2] = useState(""); 
+  const [link3, setGraph3] = useState("");   
 
   const getDocsFirebase = async (q) => {
     const querySnapshot = await getDocs(q);
@@ -35,6 +36,7 @@ export default function History() {
       setDayWeek(dataQuery.dayWeek)
       setGraph1(dataQuery.link1)
       setGraph2(dataQuery.link2)
+      setGraph3(dataQuery.link3)
       return dataQuery;
     })
   }
@@ -62,9 +64,13 @@ export default function History() {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" con tent="width=device-width, initial-scale=1.0">
         <title>History</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,300;0,400;1,900&display=swap" rel="stylesheet">
         <style>
             body {
                 background-color: #00008b;
+                margin: 0;
             }
     
             #value_iframe_ubidots {
@@ -73,12 +79,13 @@ export default function History() {
                 border: none;
                 border-radius: 40px;
     
+    
             }
     
     
             #data_ubidots {
                 width: 70%;
-                height: 931px;
+                height: 30vh;
                 border-radius: 40px;
             }
     
@@ -90,8 +97,8 @@ export default function History() {
     
             .container_data {
                 position: relative;
-                width: 80vh;
-                height: 600px;
+                width: 95vw;
+                height: 25vh;
     
     
             }
@@ -103,7 +110,6 @@ export default function History() {
                 height: 100%;
                 top: 0;
                 left: 0;
-    
                 border-radius: 40px;
             }
     
@@ -111,25 +117,33 @@ export default function History() {
                 background-color: transparent;
     
             }
-
-            .topview{
-                width:'100%';
+    
+            .topview {
+                width: '100%';
                 background-color: #00afff;
-           
-                height: 2vh;
+                height: 4vh;
             }
-
+    
+            .titles {
+                color: white;
+                font-size: 60px;
+                font-family: 'Roboto', sans-serif;
+              
+            }
         </style>
     </head>
+    <div class="topview"> </div>
     
     <body>
-    <div class="topview"> </div>
-    <center>  <h1 >Último Valor Medido</h1></center>
+    
       
+    
         <div id="container_info">
     
             <center>
-                <div>
+                <div id="container_last_value">
+                    <center><h1 class="titles">Último Valor Medido <h1/></center>
+    
                     <iframe id="value_iframe_ubidots" frameborder="0"
                     src=${link1}>
     
@@ -139,24 +153,34 @@ export default function History() {
     
     
     
-            <center>
-                <div class="container_data">
-                    <iframe class="graph_ubidots" frameborder="0"
-                    src=${link1}></iframe>
-                    <div class=" graph_ubidots overlay" onclick="AmpliarGrafico()"> </div>
-    
-    
+            <div>
+                <div class="graphic_title">
+                    <center><h1 class="titles">Gráfico<h1/></center>
                 </div>
-    
-            </center>
+               
+                <center>
+                    <div class="container_data">
+                        
+                        
+                        <iframe class="graph_ubidots" frameborder="0"
+                        src=${link2}></iframe>
+                        <div class=" graph_ubidots overlay" onclick="AmpliarGrafico()"> </div>
+        
+        
+                    </div>
+        
+                </center>
+            </div>
+            
     
     
     
     
             <center>
-                <div>
+                <div id="container_historic">
+                    <center><h1 class="titles">Histórico de dados<h1/></center>
                     <iframe id="data_ubidots" frameborder="0"
-                        src=https://stem.ubidots.com/app/dashboards/public/widget/Pvi4OzloJy3FNgaKuq1E7-Q8PcwTkoxWc-JooTrY61U?embed=true></iframe>
+                    src=${link3}></iframe>
                 </div>
             </center>
     
@@ -168,17 +192,62 @@ export default function History() {
         <script>
     
             let amplify_graph = false;
+        
+            
             function AmpliarGrafico() {
+                
     
-                if (amplify_graph == false) {
+                if (amplify_graph == false) {// ampliação detectada
+                   // body.style.marginBottom = '30vw'; 
+                    
+                    document.querySelector('.container_data').style.marginTop = '53%';
+                    
+                    document.querySelector('.container_data').style.marginLeft = '-32%'; //substitui o marginRight
+    
+                    document.querySelector('.container_data').style.width = '165vw'; 
+                    document.querySelector('.container_data').style.height = '40vh'; 
+    
+    
+                   
                     document.querySelector('.container_data').style.transform = 'rotate(90deg)';
-             
+                    document.querySelector('#container_last_value').style.display = 'none';
+                    document.querySelector('#container_historic').style.display = 'none';
+                    document.querySelector('.topview').style.display = 'none';
+                    document.querySelector('.graphic_title').style.display = 'none';
+                
+    
+                   
+    
+    
                     amplify_graph = !amplify_graph
+                    
+                     setTimeout(() => {
+                         alert('Para minimizar o gráfico clique novamente sobre ele!')
+                         }, 500)
+    
+                   
                 }
     
                 else {
+    
+    
+    
+                    document.querySelector('.container_data').style.marginTop = '0vh'; 
+                    document.querySelector('.container_data').style.marginLeft = '0vh'; 
+    
+                    document.querySelector('.container_data').style.width = '95vw'; 
+                    document.querySelector('.container_data').style.height = '25vh'; 
+    
                     document.querySelector('.container_data').style.transform = 'rotate(0deg)';
-                
+                    document.querySelector('#container_last_value').style.display = 'block'; 
+                    document.querySelector('#container_historic').style.display = 'block'; 
+                    document.querySelector('.topview').style.display = 'block';
+                    document.querySelector('.graphic_title').style.display = 'block';
+    
+                   
+                    
+                    
+    
                     amplify_graph = !amplify_graph
                 }
     

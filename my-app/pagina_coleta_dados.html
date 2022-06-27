@@ -27,7 +27,7 @@
 
         #data_ubidots {
             width: 70%;
-            height: 931px;
+            height: 30vh;
             border-radius: 40px;
         }
 
@@ -39,8 +39,8 @@
 
         .container_data {
             position: relative;
-            width: 90%;
-            height: 60vh;
+            width: 95vw;
+            height: 15vh;
 
 
         }
@@ -63,7 +63,10 @@
         .topview {
             width: '100%';
             background-color: #00afff;
-            height: 100px;
+            height: 4vh;
+            margin-top: 100px;
+          position: fixed;
+          
         }
 
         .titles {
@@ -142,19 +145,25 @@
             if (amplify_graph == false) {// ampliação detectada
                // body.style.marginBottom = '30vw'; 
                 
-                document.querySelector('.container_data').style.marginTop = '30vh';
+                document.querySelector('.container_data').style.marginTop = '53%';
                 
-                document.querySelector('.container_data').style.marginLeft = '-42vw'; //substitui o marginRight
+                document.querySelector('.container_data').style.marginLeft = '-32%'; //substitui o marginRight
 
-                document.querySelector('.container_data').style.width = '95vh'; 
-                document.querySelector('.container_data').style.height = '132vw'; 
+                document.querySelector('.container_data').style.width = '165vw'; 
+                document.querySelector('.container_data').style.height = '40vh'; 
 
+
+               
                 document.querySelector('.container_data').style.transform = 'rotate(90deg)';
                 document.querySelector('#container_last_value').style.display = 'none';
                 document.querySelector('#container_historic').style.display = 'none';
                 document.querySelector('.topview').style.display = 'none';
                 document.querySelector('.graphic_title').style.display = 'none';
             
+
+               
+
+
                 amplify_graph = !amplify_graph
                 
                 // setTimeout(() => {
@@ -166,11 +175,13 @@
 
             else {
 
+
+
                 document.querySelector('.container_data').style.marginTop = '0vh'; 
                 document.querySelector('.container_data').style.marginLeft = '0vh'; 
 
-                document.querySelector('.container_data').style.width = '90%'; 
-                document.querySelector('.container_data').style.height = '60vh'; 
+                document.querySelector('.container_data').style.width = '95vw'; 
+                document.querySelector('.container_data').style.height = '15vh'; 
 
                 document.querySelector('.container_data').style.transform = 'rotate(0deg)';
                 document.querySelector('#container_last_value').style.display = 'block'; 
@@ -178,6 +189,7 @@
                 document.querySelector('.topview').style.display = 'block';
                 document.querySelector('.graphic_title').style.display = 'block';
 
+               
                 
                 
 

@@ -42,8 +42,9 @@ export default function CreateUser({ navigation }) {
       age,
       describe,
       dayWeek,
-      link1: '',    
-      link2: '',
+      link1: 'https://stem.ubidots.com/app/dashboards/public/widget/7LXFrLIuGF1RaOSPTESBl_hMku8GJvLJRv5588cACpg?embed=true',    
+      link2: 'https://stem.ubidots.com/app/dashboards/public/widget/E691OZOxbtF3EaPN-G2NZXfmHbJiXMm8n7x7OUK9zvw?embed=true',
+      link3: 'https://stem.ubidots.com/app/dashboards/public/widget/Pvi4OzloJy3FNgaKuq1E7-Q8PcwTkoxWc-JooTrY61U?embed=true',
     }
 
     const newDocRef = doc(collection(db, "Users"));

@@ -20,7 +20,7 @@ function Tabs() {
         name="history"
         component={History}
         options={{
-          tabBarLabel: "history",
+          tabBarLabel: "Histórico",
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <Icon
@@ -35,7 +35,7 @@ function Tabs() {
         name="collectData"
         component={CollectData}
         options={{
-          tabBarLabel: "home",
+          tabBarLabel: "Tela Inicial",
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <Icon
@@ -50,7 +50,7 @@ function Tabs() {
         name="profile"
         component={Profile}
         options={{
-          tabBarLabel: "profile",
+          tabBarLabel: "Perfil",
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <Icon
