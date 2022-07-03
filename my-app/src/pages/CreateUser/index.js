@@ -29,7 +29,7 @@ export default function CreateUser({ navigation }) {
   const [dayWeek, setDayWeek] = useState("");
   const [isChecked, setCheck] = useState(false)
   const [modalVisible, setModalVisible] = useState(false);
-  const days = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira"]
+  const days = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira","Sábado","Domingo"]
 
   
 
@@ -90,7 +90,7 @@ export default function CreateUser({ navigation }) {
         </Text>
         <TextInput
             style={styles.input}
-            placeholder="enter your name"
+            placeholder="Seu nome"
             type="text"
             onChangeText={(text) => setName(text)}
             value={name}
@@ -100,7 +100,7 @@ export default function CreateUser({ navigation }) {
         </Text>
         <TextInput
             style={styles.input}
-            placeholder="type your age"
+            placeholder="Sua idade"
             type="text"
             onChangeText={(text) => setAge(text)}
             value={age}
@@ -110,7 +110,7 @@ export default function CreateUser({ navigation }) {
         </Text>
         <TextInput
             style={styles.input}
-            placeholder="register a email"
+            placeholder="exemplo@email.com"
             type="text"
             onChangeText={(text) => setEmail(text)}
             value={email}
@@ -120,19 +120,22 @@ export default function CreateUser({ navigation }) {
         </Text>
         <TextInput
             style={styles.input}
-            placeholder="create a password"
+            placeholder="Crie uma senha forte com 6 ou mais dígitos"
             secureTextEntry={true}
             type="text"
             onChangeText={(password) => setPassword(password)}
             value={password}
         />
+         
         <View style={styles.checkboxContainer}>
+        <Text style={styles.label}>Faz algum tratamento médico?</Text>
           <Checkbox
             value={isChecked}
             onValueChange={setCheck}
             style={styles.checkbox}
           />
-          <Text style={styles.label}>Esta realizando algum tratamento?</Text>
+         
+          <Text style={styles.label}>Sim</Text>
           </View>
           <View>
             {isChecked ?
