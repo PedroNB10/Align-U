@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: '#00008b',
+      backgroundColor: '#0E405B',
       flexDirection: 'column',
       justifyContent: 'space-between',
     },
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
     title: {
       
-      color: '#00008b',
+      color: '#0E405B',
       fontSize: 16,
       textAlign: "center",
     },

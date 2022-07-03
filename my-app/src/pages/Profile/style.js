@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   
     bodyContainer: {
-      backgroundColor: '#00008b',
+      backgroundColor: '#0E405B',
       width: '100%',
       height: '100%',
       alignItems: 'center',
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
       marginTop: '9%',
       height: '70%',
    
-      backgroundColor: '#3a82e9',
+      backgroundColor: 'white',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       width: '100%',
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       flexWrap: "wrap",
       fontSize: 17,
-      color: 'white', 
+      color: '#0E405B', 
       fontWeight: 'bold',
      
       
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
       alignContent: 'flex-start',
       
       fontSize: 17,
-      color: 'white', 
+      color: '#0E405B', 
     },
 
     linkEdit: {

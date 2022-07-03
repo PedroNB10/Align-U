@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       display: 'flex',
-      backgroundColor: '#4169E1',
+      backgroundColor: '#0E405B',
       
       justifyContent: 'center',
       paddingTop: Platform.OS === 'ios' ? 0 : 50,        

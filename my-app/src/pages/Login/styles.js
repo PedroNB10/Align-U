@@ -3,7 +3,7 @@ import { StyleSheet, Platform } from 'react-native'
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#4169E1',
+      backgroundColor: '#0E405B',
       alignItems: 'center',
       justifyContent: 'center',
       paddingTop: Platform.OS === 'ios' ? 0 : 50,        

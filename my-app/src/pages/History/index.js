@@ -69,7 +69,7 @@ export default function History() {
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,300;0,400;1,900&display=swap" rel="stylesheet">
         <style>
             body {
-                background-color: #00008b;
+                background-color: #0E405B;
                 margin: 0;
             }
     
