@@ -89,7 +89,7 @@ export default function Login({ navigation }) {
                     color='#bdbdbd'
                 />
                 <Text style={styles.warningAlert}>
-                    invalid email or password !!!
+                    Email ou senha inválidos!
                 </Text>
             </View>
             :
