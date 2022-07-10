@@ -3,9 +3,10 @@ import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from '@fireba
 import { firebaseAuth } from '../../Helpers/firebaseConfig'
 import { useState, useEffect } from 'react';
 
+import { Ionicons } from '@expo/vector-icons'
 
 import {
-    Text, 
+    Text,
     View,
     TextInput,
     TouchableOpacity,
@@ -20,34 +21,36 @@ export default function Login({ navigation }) {
     const [password, setPassword] = useState("");
     const [errorLogin, setErrorLogin] = useState("");
 
-    
-    
+    const [hidePass, SetHidePass] = useState(true);
+
+
+
     //server para caso a pessoa feche o app, daí ele loga com os dados armazenados anteriores
     if (firebaseAuth.currentUser) {
         navigation.navigate('home');
-      } else {
+    } else {
         onAuthStateChanged(firebaseAuth, (user) => {
-          if (user) {
-            navigation.navigate('home');
-          }
+            if (user) {
+                navigation.navigate('home');
+            }
         });
-      }
+    }
 
 
     const loginFirebase = () => {
         signInWithEmailAndPassword(firebaseAuth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            const { uid } = user; 
-            // console.log(uid);
-            navigation.navigate('home', { uid })
-        })
-        .catch((error) => {
-            setErrorLogin(true)
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
+            .then((userCredential) => {
+                const user = userCredential.user;
+                const { uid } = user;
+                // console.log(uid);
+                navigation.navigate('home', { uid })
+            })
+            .catch((error) => {
+                setErrorLogin(true)
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
     }
 
     useEffect(() => {
@@ -56,61 +59,78 @@ export default function Login({ navigation }) {
 
     return (
         <KeyboardAvoidingView
-          style={styles.container}
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.container}
+             behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
+
+
+
             <Text
                 style={styles.title}
             >
-              Login
+                Login
             </Text>
+
+
+            <View style={styles.inputArea}> 
             <TextInput
-              id="inputname"
-              style={styles.input}
-              placeholder="Digite seu email"
-              type="text"
-              onChangeText={(text) => setEmail(text)}
-              value={email}
+                id="inputname"
+                style={styles.input}
+                placeholder="Digite seu email"
+                type="text"
+                onChangeText={(text) => setEmail(text)}
+                value={email}
             />
-            <TextInput
-              style={styles.input}
-              placeholder="Digite sua senha"
-              secureTextEntry={false}
-              type="text"
-              onChangeText={(password) => setPassword(password)}
-              value={password}
-            />
-            {(errorLogin)
-            ?
-            <View style={styles.contentAlert}>
-                <MaterialCommunityIcons
-                    name='alert-circle'
-                    size={24}
-                    color='#bdbdbd'
+             </View>
+          
+
+            <View style={styles.inputArea}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Digite sua senha"
+                    secureTextEntry={hidePass}
+                    type="text"
+                    onChangeText={(password) => setPassword(password)}
+                    value={password}
                 />
-                <Text style={styles.warningAlert}>
-                    Email ou senha inválidos!
-                </Text>
+
+                    <TouchableOpacity style={styles.icon} onPress={ () => SetHidePass(!hidePass) }>
+                        <Ionicons name="eye" color="#000000" size={25} />
+                    </TouchableOpacity>
+
             </View>
-            :
-            <>
-            </>
+
+            {(errorLogin)
+                ?
+                <View style={styles.contentAlert}>
+                    <MaterialCommunityIcons
+                        name='alert-circle'
+                        size={24}
+                        color='#bdbdbd'
+                    />
+                    <Text style={styles.warningAlert}>
+                        Email ou senha inválidos!
+                    </Text>
+                </View>
+                :
+                <>
+                </>
             }
-            { (email === "" || password === "")
-            ?
-            <TouchableOpacity
-                style={styles.buttonLoginDisabled}
-                disabled={true}
-            >
-                <Text style={styles.textButtonLogin}>Entrar</Text>
-            </TouchableOpacity>
-            :
-            <TouchableOpacity
-                style={styles.buttonLogin}
-                onPress={loginFirebase}
-            >
-                <Text style={styles.textButtonLogin}>Entrar</Text>
-            </TouchableOpacity>
+            {(email === "" || password === "")
+                ?
+                <TouchableOpacity
+                    style={styles.buttonLoginDisabled}
+                    disabled={true}
+                >
+                    <Text style={styles.textButtonLogin}>Entrar</Text>
+                </TouchableOpacity>
+                :
+                <TouchableOpacity
+                    style={styles.buttonLogin}
+                    onPress={loginFirebase}
+                >
+                    <Text style={styles.textButtonLogin}>Entrar</Text>
+                </TouchableOpacity>
             }
             <Text style={styles.registration}>
                 Não é cadastrado ainda?
@@ -121,7 +141,8 @@ export default function Login({ navigation }) {
                     criar perfil
                 </Text>
             </Text>
-            <View style={{height: 100}}/>
+            <View style={{ height: 100 }} />
         </KeyboardAvoidingView>
-  );
+    );
 }
+

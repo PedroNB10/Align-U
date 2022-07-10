@@ -17,18 +17,33 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: '#ffff'
     },
-    input: {
+
+    inputArea:{
       backgroundColor: '#ffff',
+        flexDirection:'row',
+        width: '90%',
+        borderRadius: 5,
+        alignItems: 'center',
+        height: 50,
+        marginTop:10
+        
+    },
+
+    icon:{
+      width:'15%',
+      height:50,
+      justifyContent: 'center',
+      alignItems: 'center',
+
+    },
+
+    input: {
+      
       borderRadius: 10,
-      width: 300,
-      marginLeft:'auto',
-      marginRight:'auto',
-      marginTop:10,
-      padding: 10,
+      width: '85%',
+     
+      padding: 8,
       height: 50,
-      borderBottomWidth: 1,
-      borderBottomColor: '#F92E6A',
-      color: "#4d5156",  
     },
     buttonLoginDisabled: {
       width: 200,
