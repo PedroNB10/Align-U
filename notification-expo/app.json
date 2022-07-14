@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "pushnotification",
-    "slug": "pushnotification",
+    "name": "PegarDiaAtual",
+    "slug": "PegarDiaAtual",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,7 +26,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "useNextNotificationsApi": true,
-      "package": "com.pedronb10.pushnotification"
+      "package": "com.pedronb10.PegarDiaAtual"
     },
     "web": {
       "favicon": "./assets/favicon.png"
