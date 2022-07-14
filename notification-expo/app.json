@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "notification-expo",
-    "slug": "notification-expo",
+    "name": "pushnotification",
+    "slug": "pushnotification",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "useNextNotificationsApi": true,
+      "package": "com.pedronb10.pushnotification"
     },
     "web": {
       "favicon": "./assets/favicon.png"
