@@ -20,7 +20,13 @@ import profilePicture from '../../Images/doctor.png'
 import * as Notifications from "expo-notifications"
 import * as Permissions from "expo-permissions"
 
-
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 export default function CollectData({ route }) {
   const [email, setEmail] = useState("");
@@ -33,7 +39,7 @@ export default function CollectData({ route }) {
   const [link3, setGraph3] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
-  const weekday = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
+
 
   const getDocsFirebase = async (q) => {
     const querySnapshot = await getDocs(q);
@@ -52,26 +58,22 @@ export default function CollectData({ route }) {
     })
   }
 
+
+
   useEffect(async () => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: false,
-        shouldSetBadge: false,
-      }),
-    });
+   
     
     const user = await firebaseAuth.currentUser.email;
     const docRef = collection(db, "Users");
     const q = query(docRef, where("email", "==", user));
     const data = getDocsFirebase(q);
 
-    const d = new Date();
-    let day = weekday[d.getDay()];
-  
+ 
+ 
     var verificar_dia = true
-
-    if (dayWeek == day && verificar_dia == true) {
+  
+    if (verificar_dia == true) {
+      alert('deu certo :D')
       Notifications.scheduleNotificationAsync({
        content: {
          title: "You've got mail! 📬",
@@ -80,12 +82,18 @@ export default function CollectData({ route }) {
        },
        trigger: {
         seconds:1,
-        repeats: true,
+        repeats: false,
       },
     
      });
+
+  
+
+
     verificar_dia = false   
   }
+
+  
   }, [])
 
   const handleReceiveUbidots = () => {
