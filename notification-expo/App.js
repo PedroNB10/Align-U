@@ -9,79 +9,79 @@ import * as TaskManager from 'expo-task-manager';
 //novas modificaçõe
 
 //teste com o background fetch
-const BACKGROUND_FETCH_TASK = 'background-fetch';
+// const BACKGROUND_FETCH_TASK = 'background-fetch';
 
-// 1. Define the task by providing a name and the function that should be executed
-// Note: This needs to be called in the global scope (e.g outside of your React components)
-TaskManager.defineTask(BACKGROUND_FETCH_TASK, async () => {
-  const now = Date.now();
+// // 1. Define the task by providing a name and the function that should be executed
+// // Note: This needs to be called in the global scope (e.g outside of your React components)
+// TaskManager.defineTask(BACKGROUND_FETCH_TASK, async () => {
+//   const now = Date.now();
 
-  console.log(`Got background fetch call at date: ${new Date(now).toISOString()}`);
+//   console.log(`Got background fetch call at date: ${new Date(now).toISOString()}`);
 
-  // Be sure to return the successful result type!
-  return BackgroundFetch.BackgroundFetchResult.NewData;
-});
+//   // Be sure to return the successful result type!
+//   return BackgroundFetch.BackgroundFetchResult.NewData;
+// });
 
-// 2. Register the task at some point in your app by providing the same name, and some configuration options for how the background fetch should behave
-// Note: This does NOT need to be in the global scope and CAN be used in your React components!
-async function registerBackgroundFetchAsync() {
-  return BackgroundFetch.registerTaskAsync(BACKGROUND_FETCH_TASK, {
-    minimumInterval: 10, // 15 minutes
-    stopOnTerminate: false, // android only,
-    startOnBoot: true, // android only
-  });
-}
+// // 2. Register the task at some point in your app by providing the same name, and some configuration options for how the background fetch should behave
+// // Note: This does NOT need to be in the global scope and CAN be used in your React components!
+// async function registerBackgroundFetchAsync() {
+//   return BackgroundFetch.registerTaskAsync(BACKGROUND_FETCH_TASK, {
+//     minimumInterval: 10, // 15 minutes
+//     stopOnTerminate: false, // android only,
+//     startOnBoot: true, // android only
+//   });
+// }
 
 
-export  function BackgroundFetchScreen() {
-  const [isRegistered, setIsRegistered] = React.useState(false);
-  const [status, setStatus] = React.useState(null);
+// export  function BackgroundFetchScreen() {
+//   const [isRegistered, setIsRegistered] = React.useState(false);
+//   const [status, setStatus] = React.useState(null);
 
-  React.useEffect(() => {
-    checkStatusAsync();
-  }, []);
+//   React.useEffect(() => {
+//     checkStatusAsync();
+//   }, []);
 
-  const checkStatusAsync = async () => {
-    const status = await BackgroundFetch.getStatusAsync();
-    const isRegistered = await TaskManager.isTaskRegisteredAsync(BACKGROUND_FETCH_TASK);
-    setStatus(status);
-    setIsRegistered(isRegistered);
-  };
+//   const checkStatusAsync = async () => {
+//     const status = await BackgroundFetch.getStatusAsync();
+//     const isRegistered = await TaskManager.isTaskRegisteredAsync(BACKGROUND_FETCH_TASK);
+//     setStatus(status);
+//     setIsRegistered(isRegistered);
+//   };
 
-  const toggleFetchTask = async () => {
-    if (isRegistered) {
-      await unregisterBackgroundFetchAsync();
-    } else {
-      await registerBackgroundFetchAsync();
-    }
+//   const toggleFetchTask = async () => {
+//     if (isRegistered) {
+//       await unregisterBackgroundFetchAsync();
+//     } else {
+//       await registerBackgroundFetchAsync();
+//     }
 
-    checkStatusAsync();
-  };
+//     checkStatusAsync();
+//   };
 
-  return (
-    <View style={styles.screen}>
-      <View style={styles.textContainer}>
-        <Text>
-          Background fetch status:{' '}
-          <Text style={styles.boldText}>
-            {status && BackgroundFetch.BackgroundFetchStatus[status]}
-          </Text>
-        </Text>
-        <Text>
-          Background fetch task name:{' '}
-          <Text style={styles.boldText}>
-            {isRegistered ? BACKGROUND_FETCH_TASK : 'Not registered yet!'}
-          </Text>
-        </Text>
-      </View>
-      <View style={styles.textContainer}></View>
-      <Button
-        title={isRegistered ? 'Unregister BackgroundFetch task' : 'Register BackgroundFetch task'}
-        onPress={toggleFetchTask}
-      />
-    </View>
-  );
-}
+//   return (
+//     <View style={styles.screen}>
+//       <View style={styles.textContainer}>
+//         <Text>
+//           Background fetch status:{' '}
+//           <Text style={styles.boldText}>
+//             {status && BackgroundFetch.BackgroundFetchStatus[status]}
+//           </Text>
+//         </Text>
+//         <Text>
+//           Background fetch task name:{' '}
+//           <Text style={styles.boldText}>
+//             {isRegistered ? BACKGROUND_FETCH_TASK : 'Not registered yet!'}
+//           </Text>
+//         </Text>
+//       </View>
+//       <View style={styles.textContainer}></View>
+//       <Button
+//         title={isRegistered ? 'Unregister BackgroundFetch task' : 'Register BackgroundFetch task'}
+//         onPress={toggleFetchTask}
+//       />
+//     </View>
+//   );
+// }
 
 
 //teste com o background fetch
@@ -95,89 +95,10 @@ Notifications.setNotificationHandler({
   },
 })
 
-export  function Notification() {
-  useEffect(() => {
-    // Permission for iOS
-    Permissions.getAsync(Permissions.NOTIFICATIONS)
-      .then(statusObj => {
-        // Check if we already have permission
-        if (statusObj.status !== "granted") {
-          // If permission is not there, ask for the same
-          return Permissions.askAsync(Permissions.NOTIFICATIONS)
-        }
-        return statusObj
-      })
-      .then(statusObj => {
-        // If permission is still not given throw error
-        if (statusObj.status !== "granted") {
-          throw new Error("Permission not granted")
-        }
-      })
-      .then(() => {
-        return Notifications.getExpoPushTokenAsync()
-      })
-      .then(response => {
-        const deviceToken = response.data
-        console.log({ deviceToken })
-      })
-      .catch(err => {
-        return null
-      })
-  }, [])
 
-  useEffect(() => {
-    const receivedSubscription = Notifications.addNotificationReceivedListener(
-      notification => {
-        console.log("Notification Received!")
-        console.log(notification)
-      }
-    )
-
-    const responseSubscription = Notifications.addNotificationResponseReceivedListener(
-      response => {
-        console.log("Notification Clicked!")
-        console.log(response)
-      }
-    )
-
-    const subscription = Notifications.addNotificationResponseReceivedListener(response => {
-      const url = response.notification.request.content.data.url;
-      Linking.openURL(url);
-    })
-
-
-    return () => {
-      receivedSubscription.remove()
-      responseSubscription.remove()
-      subscription.remove()
-    }
-  }, [])
-
-  const triggerLocalNotificationHandler = () => {
-    Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Local Notification",
-        body: "Hello this is a local notification!",
-      },
-      trigger: { seconds: 1 },
-    })
-  }
-
-  return (
-    <View style={styles.container}>
-      <Button
-        title="Trigger Local Notification"
-        onPress={triggerLocalNotificationHandler}
-      />
-    </View>
-  )
-}
 
 export default class App extends Component {
 
-  //notificações
-
-  //fim notificações
   constructor() {
     super();
 
