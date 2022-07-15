@@ -20,22 +20,7 @@ import profilePicture from '../../Images/doctor.png'
 import * as Notifications from "expo-notifications"
 import * as Permissions from "expo-permissions"
 
-// Notifications.setNotificationHandler({
-//   handleNotification: async () => {
-//     return {
-//       shouldShowAlert: true,
-//     }
-//   },
-// })
 
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-});
 
 export default function CollectData({ route }) {
   const [email, setEmail] = useState("");
@@ -50,32 +35,6 @@ export default function CollectData({ route }) {
 
   const weekday = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
 
-  const d = new Date();
-  let day = weekday[d.getDay()];
-
- var verificar_dia = true
-
-
-
-  if (dayWeek == day && verificar_dia == true) {
-
-
-
-
-      Notifications.scheduleNotificationAsync({
-       content: {
-         title: "You've got mail! 📬",
-         body: 'Hoje é o dia da medição :D',
-         data: { data: 'goes here' },
-       },
-       trigger: null,
-    
-     });
-
-    verificar_dia = false
-   
-  }
-  
   const getDocsFirebase = async (q) => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -93,11 +52,40 @@ export default function CollectData({ route }) {
     })
   }
 
-  useEffect(() => {
-    const user = firebaseAuth.currentUser.email;
+  useEffect(async () => {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+      }),
+    });
+    
+    const user = await firebaseAuth.currentUser.email;
     const docRef = collection(db, "Users");
     const q = query(docRef, where("email", "==", user));
     const data = getDocsFirebase(q);
+
+    const d = new Date();
+    let day = weekday[d.getDay()];
+  
+    var verificar_dia = true
+
+    if (dayWeek == day && verificar_dia == true) {
+      Notifications.scheduleNotificationAsync({
+       content: {
+         title: "You've got mail! 📬",
+         body: 'Hoje é o dia da medição :D',
+         data: { data: 'goes here' },
+       },
+       trigger: {
+        seconds:1,
+        repeats: true,
+      },
+    
+     });
+    verificar_dia = false   
+  }
   }, [])
 
   const handleReceiveUbidots = () => {
@@ -178,5 +166,3 @@ export default function CollectData({ route }) {
 <Text style={styles.titleBtn}>Iniciar</Text>
 </TouchableOpacity>
  */}
-
- 
