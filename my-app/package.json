@@ -31,7 +31,12 @@
     "react-native-screens": "~3.11.1",
     "react-native-web": "0.17.7",
     "react-native-webview": "11.18.1",
-    "webpack-dev-server": "~3.11.0"
+    "webpack-dev-server": "~3.11.0",
+    "expo-background-fetch": "~10.2.0",
+    "expo-notifications": "~0.15.4",
+    "expo-permissions": "~13.2.0",
+    "expo-task-manager": "~10.2.1"
+    
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
