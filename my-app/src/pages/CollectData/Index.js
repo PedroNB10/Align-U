@@ -68,12 +68,6 @@ export default function CollectData({ route }) {
     const q = query(docRef, where("email", "==", user));
     const data = getDocsFirebase(q);
 
- 
- 
-    var verificar_dia = true
-  
-    if (verificar_dia == true) {
-      alert('deu certo :D')
       Notifications.scheduleNotificationAsync({
        content: {
          title: "You've got mail! 📬",
@@ -90,8 +84,7 @@ export default function CollectData({ route }) {
   
 
 
-    verificar_dia = false   
-  }
+  
 
   
   }, [])
