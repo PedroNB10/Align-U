@@ -129,7 +129,7 @@ export default function Profile({ navigation }) {
               </View>
 
               <Button color="#fc447a"
-                title="Logout"
+                title="Sair da Conta"
             
 
                 onPress={logout}

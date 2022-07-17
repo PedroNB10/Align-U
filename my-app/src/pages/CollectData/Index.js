@@ -54,6 +54,28 @@ export default function CollectData({ route }) {
       setGraph1(dataQuery.link1)
       setGraph2(dataQuery.link2)
       setGraph3(dataQuery.link3)
+
+      const weekday = ["Domingo","Segunda-Feira","Terça-Feira","Quarta-Feira","Quinta-Feira","Sexta-Feira","Sábado"];
+      const d = new Date();
+      let day = weekday[d.getDay()];
+
+      console.log(dataQuery.dayWeek)
+
+      if(day == dataQuery.dayWeek){
+        Notifications.scheduleNotificationAsync({
+          content: {
+            title: "You've got mail! 📬",
+            body: 'Hoje é o dia da medição :D',
+            data: { data: 'goes here' },
+          },
+          trigger: {
+           seconds:1,
+           repeats: false,
+         },
+       
+        })
+      }
+      
       return dataQuery;
     })
   }
@@ -66,20 +88,9 @@ export default function CollectData({ route }) {
     const user = await firebaseAuth.currentUser.email;
     const docRef = collection(db, "Users");
     const q = query(docRef, where("email", "==", user));
-    const data = getDocsFirebase(q);
+    const data = await getDocsFirebase(q);
 
-      Notifications.scheduleNotificationAsync({
-       content: {
-         title: "You've got mail! 📬",
-         body: 'Hoje é o dia da medição :D',
-         data: { data: 'goes here' },
-       },
-       trigger: {
-        seconds:1,
-        repeats: false,
-      },
-    
-     });
+      ;
 
   
 

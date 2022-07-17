@@ -57,17 +57,34 @@ export default function CreateUser({ navigation }) {
   }
 
   const registerFirebase = () => {
-    createUserWithEmailAndPassword(firebaseAuth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      addFirestore();
-      navigation.navigate('home')
-    })
-    .catch((error) => {
-      // setErrorLogin(true)
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+if(password.length < 6){
+  alert('Sua precisa ter 6 ou mais dígitos para ser validada')
+}
+    else if(password == '123456'){
+      alert('Sua senha está muito fácil, coloque letras maiúsculas, minúsculas e caracteres especiais')
+    }
+
+    else if(password.toUpperCase() == 'ABCDEF'){
+      alert('Sua senha está muito fácil, coloque números e caracteres especiais')
+    }
+
+    
+
+    else{
+      createUserWithEmailAndPassword(firebaseAuth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        addFirestore();
+        navigation.navigate('home')
+      })
+      .catch((error) => {
+        // setErrorLogin(true)
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+    }
+
+  
   }
 
   function handleCheck() {
@@ -121,7 +138,7 @@ export default function CreateUser({ navigation }) {
         <TextInput
             style={styles.input}
             placeholder="Crie uma senha forte com 6 ou mais dígitos"
-            secureTextEntry={true}
+            secureTextEntry={false}
             type="text"
             onChangeText={(password) => setPassword(password)}
             value={password}
@@ -141,7 +158,7 @@ export default function CreateUser({ navigation }) {
             {isChecked ?
             <TextInput
               style={styles.input}
-              placeholder="describe here"
+              placeholder="Por exemplo: Escoliose, Cifose, Lordose..."
               type="text"
               onChangeText={(describe => setDescribe(describe))}
               value={describe}
