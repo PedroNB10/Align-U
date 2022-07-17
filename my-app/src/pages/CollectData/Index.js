@@ -74,6 +74,20 @@ export default function CollectData({ route }) {
          },
        
         })
+
+        Notifications.scheduleNotificationAsync({
+          content: {
+            title: "Alerta - Align U ⚠️",
+            body: 'Não se esqueça, hoje tem medição🧑‍⚕️',
+            data: { data: 'goes here' },
+          },
+          trigger: {
+           seconds:60*60*24*7,
+           repeats: true,
+         },
+       
+        })
+
       }
       
       return dataQuery;
