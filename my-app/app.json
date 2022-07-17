@@ -30,6 +30,25 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "notification": {
+ 
+     
+      "iosDisplayInForeground": true,
+      "androidMode": "default",
+      "androidCollapsedTitle": "Updates from Colab.notes"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+           "icon": "./assets/icon.png"
+         
+        }
+      ]
+    ]
+
+    
+    
   }
 }

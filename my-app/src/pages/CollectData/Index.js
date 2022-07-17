@@ -64,7 +64,7 @@ export default function CollectData({ route }) {
       if(day == dataQuery.dayWeek){
         Notifications.scheduleNotificationAsync({
           content: {
-            title: "You've got mail! 📬",
+            title: "Aviso Importante 🤓",
             body: 'Hoje é o dia da medição :D',
             data: { data: 'goes here' },
           },
